@@ -1,12 +1,14 @@
-import { Button } from '@/components/ui/button'
-import Image from 'next/image'
+'use client'
+
+import { Button } from "@/components/ui/button"
+
 
 export default function Home() {
   return (
     <main>
       bonjour
       <div>
-        <Button>Cliquer</Button>
+        <Button>test</Button>
       </div>
     </main>
 
