@@ -2,6 +2,9 @@
 
 
 
+## icons librarie
+https://lucide.dev/
+
 
 ## le tuto
 https://www.youtube.com/watch?v=mTW3V2IpOrg
