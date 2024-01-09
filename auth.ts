@@ -40,8 +40,8 @@ export const {
   // providers: [GitHub],
 
   pages: {
-    signIn: "/auth/login",
-    error: "/auth/error",
+    signIn: "/login",
+    error: "/error",
   },
 
   events: {

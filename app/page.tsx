@@ -1,43 +1,20 @@
 
-
-
-import { Button } from "@/components/ui/button"
 import { auth } from "@/auth"
-import { currentUser } from '@/lib/auth'
-import { logout } from "@/actions/logout"
+import { redirect } from "next/navigation"
 
 
 
 export default async function Home() {
 
-  const user = await currentUser()
 
+  const session = await auth()
 
-  return (
+  console.log('la session', session)
 
-    <main className="flex min-h-screen flex-col items-center justify-normal gap-5 p-24">
-      bonjour
-      <div>
-        <Button>test</Button>
-      </div>
+  if (!session) {
+    return redirect('/login')
+  }
 
-      <div>
-        {user?.email}
-      </div>
+  redirect('/home')
 
-      {user?.email && (
-
-        <form action={async () => {
-          "use server"
-          await logout()
-        }}>
-        <button>Sign out</button>
-        </form>
-
-      )}
-
-
-    </main>
-
-  )
 }
