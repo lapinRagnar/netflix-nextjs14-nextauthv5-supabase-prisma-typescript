@@ -5,6 +5,7 @@ import Link from "next/link"
 
 import Logo from '../public/netflix_logo.svg'
 import { usePathname } from "next/navigation";
+import { Bell, Search } from "lucide-react";
 
 
 interface linkProps {
@@ -63,6 +64,12 @@ const Navbar = () => {
           ))}
         </ul>
       </div>
+
+      <div className="flex items-center gap-x-8">
+        <Search className="w-4 h-4 cursor-pointer text-gray-300" />
+        <Bell className="w-4 h-4 cursor-pointer text-gray-300" />
+      </div>
+    
     </div>
   )
 }
