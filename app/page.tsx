@@ -13,8 +13,8 @@ export default async function Home() {
 
   if (!session) {
     return redirect('/login')
+  } else {
+    redirect('/home')
   }
-
-  redirect('/home')
 
 }
