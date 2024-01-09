@@ -1,3 +1,5 @@
+import GithubSignInButton from "@/components/GithubSignInButton";
+import GoogleSignInButton from "@/components/GoogleSignInButton";
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import Link from "next/link";
@@ -33,7 +35,8 @@ const SignupPage = () => {
       </div>
 
       <div className="flex w-full justify-center items-center gap-x-3 mt-6">
-
+        <GithubSignInButton />
+        <GoogleSignInButton />
       </div>
     </div>
   )
