@@ -1,9 +1,9 @@
 
 import { currentUser } from '@/lib/auth'
 import { auth } from "@/auth"
-import { logout } from "@/actions/logout"
 import { redirect } from "next/navigation"
-import { Button } from "@/components/ui/button"
+import MovieVideo from '@/components/MovieVideo'
+import RecentlyAdded from '@/components/RecentlyAdded'
 
 const HomePage = async () => {
 
@@ -16,28 +16,12 @@ const HomePage = async () => {
 
   return (
     
-    <main className="flex min-h-screen flex-col items-center justify-normal gap-5 p-24">
-      bonjour de home
-      <div>
-        <Button>test</Button>
-      </div>
+    <main className="p-10 lg:p-0">
 
-      <div>
-        {user?.email}
-      </div>
-
-      {user?.email && (
-
-        <form action={async () => {
-          "use server"
-          await logout()
-        }}>
-        <button>Sign out</button>
-        </form>
-
-      )}
-
-
+      <MovieVideo />
+      <h1 className='text-3xl font-bold'>Recently added</h1>
+      <RecentlyAdded />
+      
     </main>
 
   )
