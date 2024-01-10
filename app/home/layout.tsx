@@ -1,4 +1,6 @@
 import { auth } from "@/auth"
+import Navbar from "@/components/Navbar"
+import { redirect } from "next/navigation"
 
 
 const HomeLayout = async ({children}: {children: React.ReactNode}) => {
@@ -6,8 +8,17 @@ const HomeLayout = async ({children}: {children: React.ReactNode}) => {
 
   console.log('la session dans home layout', session)
 
+  if (!session) {
+    return redirect('/login')
+  }
+
   return (
-    <div>HomeLayout</div>
+    <>
+      <Navbar />
+      <main className="w-full max-w-7xl mx-auto sm:px-6 lg:px-8">
+        {children}
+      </main>
+    </>
   )
 }
 

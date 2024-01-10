@@ -23,7 +23,7 @@ export default function RootLayout({
         
         <NextAuthProvider>
           <div>
-            <Navbar />
+
           </div>
 
           <div>
