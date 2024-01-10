@@ -21,7 +21,9 @@ const HomePage = async () => {
       <MovieVideo />
       <h1 className='text-3xl font-bold'>Recently added</h1>
       <RecentlyAdded />
-      
+
+      <div className='h-[150px] '>a</div>
+
     </main>
 
   )
