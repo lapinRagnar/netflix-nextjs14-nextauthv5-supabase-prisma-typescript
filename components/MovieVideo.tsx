@@ -1,5 +1,6 @@
 import { db } from "@/lib/db"
 import { Button } from "./ui/button"
+import MovieButtons from "./MovieButtons"
 
 async function getData() {
   const data = await db.movie.findFirst({
@@ -11,7 +12,8 @@ async function getData() {
       release: true,
       duration: true,
       id: true,
-      age: true
+      age: true,
+      youtubeString: true
     }
   })
 
@@ -43,10 +45,18 @@ const MovieVideo = async () => {
         </p>
 
         <div className="flex gap-x-3 mt-4">
-          <Button>
-            see more!
-          </Button>
-          <Button>Learn more</Button>
+
+          <MovieButtons 
+            age={data?.age as number} 
+            duration={data?.duration as number}
+            id={data?.id as number}
+            title={data?.title as string}
+            overview={data?.overview as string}
+            realiseDate={data?.release as number}
+            youtubeUrl={data?.videoSource as string}
+            key={data?.id as number}
+          />
+
         </div>
 
       </div>
