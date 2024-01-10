@@ -1,15 +1,23 @@
+
+
 import GithubSignInButton from "@/components/GithubSignInButton"
 import GoogleSignInButton from "@/components/GoogleSignInButton"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import Link from "next/link"
 
+import { signIn } from "@/auth"
+
 import { auth } from "@/auth"
 import { redirect } from "next/navigation"
+
+
 
 const LoginPage = async () => {
   
   const session = await auth()
+
+
 
   if (session) {
     return redirect('/home')
@@ -17,7 +25,7 @@ const LoginPage = async () => {
 
   return (
     <div className="mt-24  rounded bg-black/80 py-10 px-6 md:mt-0 md:max-w-sm md:px-14">
-    <form method="post" action="/api/auth/signin">
+    <form method="post" action={"/api/auth/signin"}>
       <h1 className="text-3xl font-semibold text-white">Log in</h1>
         <div className="space-y-4 mt-5">
           <Input

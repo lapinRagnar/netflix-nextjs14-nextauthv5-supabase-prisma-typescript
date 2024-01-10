@@ -8,6 +8,7 @@ import { db } from "@/lib/db"
 
 import { getUserById } from "@/data/user"
 
+
 // import { getTwoFactorConfirmationByUserId } from "@/data/twoFactorConfirmation"
 // import { getAccountByUserId } from "./data/account"
 
@@ -40,7 +41,7 @@ export const {
   // providers: [GitHub],
 
   pages: {
-    signIn: "/login",
+    // signIn: "/login",
     error: "/error",
   },
 

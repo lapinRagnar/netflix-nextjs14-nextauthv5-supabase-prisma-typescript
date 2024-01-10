@@ -1,6 +1,7 @@
 import Image from "next/image"
 import BackgroundImage from '../../public/login_background.jpg'
 import Logo from '../../public/netflix_logo.svg'
+
 const AuthLayout = ({children}: {children: React.ReactNode}) => {
   return (
     <div>
