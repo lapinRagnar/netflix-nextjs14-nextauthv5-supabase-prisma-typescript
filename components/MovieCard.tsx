@@ -52,8 +52,8 @@ const MovieCard = ({movieId, watchList, watchListId, youtubeUrl, title, overview
 
           }}>
             
-            <input hidden type="text" name="watchListId" value={watchListId} />
-            <input hidden type="text" name="pathName" value={pathName} />
+            <input hidden type="text" name="watchListId" defaultValue={watchListId} />
+            <input hidden type="text" name="pathName" defaultValue={pathName} />
 
 
             <Button variant={'outline'} size="icon">
@@ -80,8 +80,8 @@ const MovieCard = ({movieId, watchList, watchListId, youtubeUrl, title, overview
             
           }>
 
-            <input hidden type="text" name="movieId" value={movieId} />
-            <input hidden type="text" name="pathName" value={pathName} />
+            <input hidden type="text" name="movieId" defaultValue={movieId} />
+            <input hidden type="text" name="pathName" defaultValue={pathName} />
 
             <Button variant={'outline'} size="icon">
               <Heart className="w-5 h-5 " />
