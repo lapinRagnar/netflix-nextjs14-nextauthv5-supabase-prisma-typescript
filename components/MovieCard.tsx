@@ -6,6 +6,8 @@ import PlayVideoModal from "@/components/PlayVideoModal"
 import { useState } from "react"
 import { addToWatchList, deleteFromWatchList } from "@/actions/gestionListMovie"
 import { usePathname } from "next/navigation"
+import { useToast } from "./ui/use-toast"
+
 
 interface iAppProps {
   title: string
@@ -25,6 +27,8 @@ const MovieCard = ({movieId, watchList, watchListId, youtubeUrl, title, overview
   const [open, setOpen] = useState(false)
 
   const pathName = usePathname()
+
+  const { toast } = useToast()
 
   return (
     <>
@@ -50,7 +54,21 @@ const MovieCard = ({movieId, watchList, watchListId, youtubeUrl, title, overview
         ): (
 
           /* quand on clique sur le bouton on ajoute le film a la liste */
-          <form action={addToWatchList}>
+          <form action={ async (formData) => {
+
+              const result =  await addToWatchList(formData)
+
+              if(result){
+
+                toast({
+                  variant: "success",
+                  description: "Movie added to your list",
+                })
+              }
+
+            }
+            
+          }>
 
             <input hidden type="text" name="movieId" value={movieId} />
             <input hidden type="text" name="pathName" value={pathName} />

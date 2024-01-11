@@ -12,6 +12,7 @@ export async function addToWatchList(formData: FormData) {
   const session = await auth()
   const movieId = formData.get('movieId') 
   const pathName = formData.get('pathName')
+  
 
   const data = await db.watchList.create({
     data: {
@@ -20,7 +21,11 @@ export async function addToWatchList(formData: FormData) {
     }
   })
 
+  console.log("ajouter a ma liste", data)
+
   revalidatePath(pathName as string)
+
+  return data
 
 } 
 
