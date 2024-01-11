@@ -1,15 +1,20 @@
 import { db } from "@/lib/db"
 import Image from "next/image"
 import MovieCard from "@/components/MovieCard"
+import { auth } from "@/auth"
 
 
-const getData = async () => {
+const getData = async (userId: string) => {
   const data = await db.movie.findMany({
     select: {
       id: true,
       overview: true,
       title: true,
-      WatchLists: true,
+      WatchLists: {
+        where: {
+          userId: userId
+        }
+      },
       imageString: true,
       youtubeString: true,
       release: true,
@@ -27,7 +32,10 @@ const getData = async () => {
 }
 
 const RecentlyAdded = async () => {
-  const data = await getData()
+
+  const session = await auth()
+
+  const data = await getData(session?.user.id as string)
 
   return (
     <div className="grid grid-col-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-8 gap-6">
