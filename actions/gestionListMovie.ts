@@ -32,7 +32,6 @@ export async function addToWatchList(formData: FormData) {
 
 export async function deleteFromWatchList(formData: FormData) {
   
-  const session = await auth()
   const watchListId = formData.get('watchListId') 
   const pathName = formData.get('pathName')
 
@@ -43,6 +42,8 @@ export async function deleteFromWatchList(formData: FormData) {
   })
 
   revalidatePath(pathName as string)
+
+  return data
 
 }
 

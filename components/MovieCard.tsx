@@ -40,7 +40,17 @@ const MovieCard = ({movieId, watchList, watchListId, youtubeUrl, title, overview
         
         {watchList ? (
           /* quand on clique sur le bouton on enleve le film de la liste */
-          <form action={deleteFromWatchList}>
+          <form action={ async (formData) => {
+            const result = await deleteFromWatchList(formData)
+            if(result){
+
+              toast({
+                variant: "destructive",
+                description: "Movie deleted from your list",
+              })
+            }
+
+          }}>
             
             <input hidden type="text" name="watchListId" value={watchListId} />
             <input hidden type="text" name="pathName" value={pathName} />
